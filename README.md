@@ -64,6 +64,6 @@ Open http://localhost:8080 on your browser
 
  ## Credits
 
- - https://github.com/smebberson/docker-alpine
- - https://github.com/just-containers/base-alpine
- - https://github.com/bytepark/alpine-nginx-php7
+- https://github.com/smebberson/docker-alpine
+- https://github.com/just-containers/base-alpine
+- https://github.com/bytepark/alpine-nginx-php7
