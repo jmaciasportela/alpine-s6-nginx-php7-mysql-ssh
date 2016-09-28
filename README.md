@@ -1,5 +1,4 @@
-# Alpine-Linux + nginx + php7-fpm + mysql + ssh + s6-overlay
-
+# Alpine-Linux + nginx + php7-fpm + mysql + ssh + s6-overlay [![](https://images.microbadger.com/badges/image/jmaciasportela/alpine-s6-nginx-php7-mysql-ssh.svg)](https://microbadger.com/images/jmaciasportela/alpine-s6-nginx-php7-mysql-ssh "Get your own image badge on microbadger.com")
 ## Usage
 
 Available options injected as environment variable
