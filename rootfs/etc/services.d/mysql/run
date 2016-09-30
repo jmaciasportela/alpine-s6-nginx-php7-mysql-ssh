@@ -1,0 +1,47 @@
+#!/usr/bin/with-contenv bash
+
+VOLUME_HOME="/var/lib/mysql"
+CONF_FILE="/etc/mysql/my.cnf"
+LOG_HOME="/var/log/mysql"
+
+# Set permission of config file
+chmod 644 ${CONF_FILE}
+
+InitializeMySQL()
+{
+	/usr/bin/mysqld_safe --datadir=$VOLUME_HOME > /dev/null 2>&1 &
+    while ! nc -z localhost 3306; do sleep 1; done
+    echo "Mysql running"
+    #Set root password
+	mysqladmin -u root password "${MYSQL_PASS}"
+
+	echo "=> Done!"
+
+	echo "========================================================================"
+	echo "You can now connect to this MySQL Server using:"
+	echo ""
+	echo "    mysql -u root -p${MYSQL_PASS}"
+	echo ""
+	echo "========================================================================"
+	killall mysqld
+	echo "Mysql Shutdown"
+}
+
+# Initialize empty data volume and create MySQL user
+if [[ ! -d $VOLUME_HOME/mysql ]]; then
+    echo "=> An empty or uninitialized MySQL volume is detected in $VOLUME_HOME"
+    echo "=> Installing MySQL ..."
+    if [ ! -f /usr/share/mysql/my-default.cnf ] ; then
+        cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf
+    fi
+    mysql_install_db > /dev/null 2>&1
+    echo "=> Done!"
+    echo "=> Creating admin user ..."
+    InitializeMySQL
+else
+    echo "=> Using an existing volume of MySQL"
+fi
+
+echo "Starting Mysql"
+mkdir -p "${LOG_HOME}"
+exec mysqld --user=root --bind-address=0.0.0.0 > "${LOG_HOME}/mysql.log" 2>&1
