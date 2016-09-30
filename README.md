@@ -1,5 +1,6 @@
-# Alpine-Linux + nginx + php7-fpm + mysql + ssh + s6-overlay
-
+# Alpine-Linux + nginx + php7-fpm + mysql + ssh + s6-overlay 
+[![](https://images.microbadger.com/badges/image/jmaciasportela/alpine-s6-nginx-php7-mysql-ssh.svg)](https://microbadger.com/images/jmaciasportela/alpine-s6-nginx-php7-mysql-ssh "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/jmaciasportela/alpine-s6-nginx-php7-mysql-ssh.svg)](https://microbadger.com/images/jmaciasportela/alpine-s6-nginx-php7-mysql-ssh "Get your own version badge on microbadger.com")
 ## Usage
 
 Available options injected as environment variable
@@ -63,6 +64,6 @@ Open http://localhost:8080 on your browser
 
  ## Credits
 
- - https://github.com/smebberson/docker-alpine
- - https://github.com/just-containers/base-alpine
- - https://github.com/bytepark/alpine-nginx-php7
+- https://github.com/smebberson/docker-alpine
+- https://github.com/just-containers/base-alpine
+- https://github.com/bytepark/alpine-nginx-php7
